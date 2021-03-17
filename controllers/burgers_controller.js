@@ -22,7 +22,7 @@ router.post('/api/burgers', (req,result) => {
 
 router.put('/api/burgers/:id', (req,result) => {
   var status = 'id = '+req.params.id;
-
+  console.log(status);
   burgers.updateOne(
     {devoured: req.body.devoured},
     status, 

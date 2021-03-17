@@ -1,9 +1,9 @@
   
 body{
-  background-color: rgb(252, 183, 183);
+  background-color: rgb(183, 252, 194);
 }
 
-h1, h2, ul, .create-form{
+h1, h2, h3, ul, #createBurger{
   text-align: center;
   color: rgb(1, 32, 119);
 }
@@ -15,5 +15,11 @@ header{
 #newBurger{
   margin-top: 20px;
   padding: 20px;
-  background-color: lightblue;
+  background-color: rgb(0, 191, 255);
+}
+
+#burgerList{
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 15px;
 }

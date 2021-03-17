@@ -4,28 +4,31 @@
 </header>
 
 <div class='container'>
-  <div>
-    <h2>Burgers</h2>
-    <ul>
-      {{#each burgers}}
-      {{#unless devoured}}
-      <p>{{burger_name}}<button id='devourItBtn' class='devourItBtn btn-primary' data-id='{{this.id}}'>Devour It!!!</button></p>
-      {{/unless}}
-      {{/each}}
-    </ul>
-  </div>  
-  <div>
-    <h2>Devoured Burgers!</h2>
+  <div id='burgerList'>
+    <div>
+      <h2>Burgers</h2>
+      <ul>
+        {{#each burgers}}
+        {{#unless this.devoured}}
+        <p>{{this.id}} - {{this.burger_name}}
+          <button id='devourItBtn' class='devourItBtn' data-id='{{this.id}}'>Devour It!!!</button>
+        </p>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>  
+    <div>
+      <h2>Devoured Burgers!</h2>
 
-    <ul>
-      {{#each burgers}}
-      {{#if devoured}}
-      <p>{{burger_name}}</p>
-      {{/if}}
-      {{/each}}
-    </ul>
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        <p>{{burger_name}}</p>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
-
   <div>
     <h3>Add a Burger</h3>
     <form id='createBurger'>

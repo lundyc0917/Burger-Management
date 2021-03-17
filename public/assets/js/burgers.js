@@ -22,15 +22,15 @@ $(function(){
   });
 
   // Eat Burger
-  $('#devourItBtn').on('click', (event) => {
-    event.preventDefault();
+  $('#devourItBtn').on('click', function() {
     var eatIt = {
       devoured: true
     }
 
-    var id = $(this).data('id');
+    var id = $(this).data("id");
+    console.log("BURGER ID ="+id);
     $.ajax('/api/burgers/'+id, {
-      method: 'PUT',
+      type: 'PUT',
       data: eatIt,
     }).then(() => {
       location.reload();
