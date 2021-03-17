@@ -1,0 +1,19 @@
+  
+body{
+  background-color: rgb(252, 183, 183);
+}
+
+h1, h2, ul, .create-form{
+  text-align: center;
+  color: rgb(1, 32, 119);
+}
+
+header{
+  align-content: center;
+  text-align: center;
+}
+#newBurger{
+  margin-top: 20px;
+  padding: 20px;
+  background-color: lightblue;
+}

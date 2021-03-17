@@ -1,0 +1,40 @@
+
+<header>
+  <h1>Eat-Da-Burger</h1>
+</header>
+
+<div class='container'>
+  <div>
+    <h2>Burgers</h2>
+    <ul>
+      {{#each burgers}}
+      {{#unless devoured}}
+      <p>{{burger_name}}<button id='devourItBtn' class='devourItBtn btn-primary' data-id='{{this.id}}'>Devour It!!!</button></p>
+      {{/unless}}
+      {{/each}}
+    </ul>
+  </div>  
+  <div>
+    <h2>Devoured Burgers!</h2>
+
+    <ul>
+      {{#each burgers}}
+      {{#if devoured}}
+      <p>{{burger_name}}</p>
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+
+  <div>
+    <h3>Add a Burger</h3>
+    <form id='createBurger'>
+      <div>
+        <label>Burger Name:</label>
+        <input type='text' id='newBurger' name='name'>
+      </div>
+      <button type='submit' class='btn-secondary'>Add Burger</button>
+    </form>
+  </div>
+
+</div>

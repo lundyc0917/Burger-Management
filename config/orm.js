@@ -30,8 +30,8 @@ function objToSql(obj){
 
 var orm = {
 // Select all burgers
-  all: function(tableName, cb) {
-    var queryString = '* SELECT * FROM * '+tableName+';';
+  selectAll: (tableName, cb) => {
+    var queryString = 'SELECT * FROM '+tableName+';';
     connection.query(queryString, function(error, result) {
       if (error) {
         throw error;
@@ -40,7 +40,7 @@ var orm = {
     });
   },
 // Create new burger
-  createNew: function(tableName, cols, values, cb){
+  insertOne: (tableName, cols, values, cb) => {
     var queryString = 'INSERT INTO '+tableName;
 
     queryString += ' (';
@@ -50,18 +50,19 @@ var orm = {
     queryString += questionMarks(values.length);
     queryString += ') ';
 
-    connectio.query(queryString, values, function(error, result){
+    connection.query(queryString, values, function(error, result){
       if (error){
         throw error;
       }
       cb(result);
     });
   },
-  updateOne: function(tablename, objColValues, status, cb){
+  updateOne: (tablename, objColValues, status, cb) => {
     var queryString = 'UPDATE '+tablename;
-    queryString += 'SET '
-    queryString += objColValues(objColValues);
-    queryString += 'WHERE ';
+
+    queryString += ' SET ';
+    queryString += objToSql(objColValues);
+    queryString += ' WHERE ';
     queryString += status;
 
     connection.query(queryString, function(error, result){
@@ -73,3 +74,4 @@ var orm = {
   }
 
 }
+module.exports = orm;
