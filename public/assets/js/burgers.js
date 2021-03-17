@@ -22,6 +22,7 @@ $(function(){
   });
 
   // Eat Burger
+  //TODO: Make it so that you can devour any item, not just the first one
   $('#devourItBtn').on('click', function() {
     var eatIt = {
       devoured: true
